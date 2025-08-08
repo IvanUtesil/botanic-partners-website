@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botanic Partners - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-leaf"></i>
+                <span>Botanic Partners</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-section="hero">
+                        <i class="fas fa-home"></i>
+                        <span>Hero Section</span>
+                    </li>
+                    <li class="nav-item" data-section="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Section</span>
+                    </li>
+                    <li class="nav-item" data-section="products">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </li>
+                    <li class="nav-item" data-section="services">
+                        <i class="fas fa-cogs"></i>
+                        <span>Services</span>
+                    </li>
+                    <li class="nav-item" data-section="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Info</span>
+                    </li>
+                    <li class="nav-item" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="breadcrumb">
+                    <span id="current-section">Dashboard</span>
+                </div>
+                <div class="user-menu">
+                    <span>Admin</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <h1>Dashboard</h1>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-eye"></i>
+                        <div class="stat-info">
+                            <h3>Page Views</h3>
+                            <p>1,234</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-envelope"></i>
+                        <div class="stat-info">
+                            <h3>Contact Forms</h3>
+                            <p>23</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Visitors</h3>
+                            <p>456</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="switchSection('hero')">
+                            <i class="fas fa-edit"></i>
+                            Edit Hero Section
+                        </button>
+                        <button class="btn btn-secondary" onclick="switchSection('products')">
+                            <i class="fas fa-box"></i>
+                            Manage Products
+                        </button>
+                        <button class="btn btn-secondary" onclick="switchSection('contact')">
+                            <i class="fas fa-envelope"></i>
+                            Update Contact Info
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hero Section -->
+            <section id="hero" class="content-section">
+                <h1>Hero Section</h1>
+                <form class="admin-form" id="hero-form">
+                    <div class="form-group">
+                        <label>Hero Title (English)</label>
+                        <input type="text" name="hero_title_en" value="Cherry Laurel.">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Subtitle (English)</label>
+                        <input type="text" name="hero_subtitle_en" value="Redefined.">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Title (Czech)</label>
+                        <input type="text" name="hero_title_cs" value="Bobkovišeň.">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Subtitle (Czech)</label>
+                        <input type="text" name="hero_subtitle_cs" value="Předefinováno.">
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Description (English)</label>
+                        <textarea name="hero_description_en" rows="3">Experience the pinnacle of horticultural excellence. Premium cherry laurel varieties, meticulously cultivated for discerning landscapes.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Description (Czech)</label>
+                        <textarea name="hero_description_cs" rows="3">Zažijte vrchol zahradnické dokonalosti. Prémiové odrůdy bobkovišně, pečlivě pěstované pro náročné krajiny.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Hero Background Image URL</label>
+                        <input type="url" name="hero_image" value="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary">Preview</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <h1>About Section</h1>
+                <form class="admin-form" id="about-form">
+                    <div class="form-group">
+                        <label>About Title (English)</label>
+                        <input type="text" name="about_title_en" value="About Botanic Partners">
+                    </div>
+                    <div class="form-group">
+                        <label>About Title (Czech)</label>
+                        <input type="text" name="about_title_cs" value="O Botanic Partners">
+                    </div>
+                    <div class="form-group">
+                        <label>About Subtitle (English)</label>
+                        <input type="text" name="about_subtitle_en" value="Where nature meets precision engineering">
+                    </div>
+                    <div class="form-group">
+                        <label>About Subtitle (Czech)</label>
+                        <input type="text" name="about_subtitle_cs" value="Kde se příroda setkává s precizním inženýrstvím">
+                    </div>
+                    <div class="form-group">
+                        <label>Lead Text (English)</label>
+                        <textarea name="about_lead_en" rows="3">Founded with a passion for horticultural excellence, Botanic Partners represents the convergence of traditional cultivation wisdom and modern precision techniques.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Lead Text (Czech)</label>
+                        <textarea name="about_lead_cs" rows="3">Založena s vášní pro zahradnickou dokonalost, Botanic Partners představuje spojení tradiční moudrosti pěstování a moderních precizních technik.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>About Image URL</label>
+                        <input type="url" name="about_image" value="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary">Preview</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="content-section">
+                <h1>Products Management</h1>
+                <div class="products-list">
+                    <div class="product-item" data-product="standard">
+                        <div class="product-header">
+                            <h3>Standard Cherry Laurel</h3>
+                            <button class="btn btn-small" onclick="editProduct('standard')">Edit</button>
+                        </div>
+                        <div class="product-preview">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80" alt="Standard Cherry Laurel">
+                        </div>
+                    </div>
+                    <div class="product-item" data-product="dwarf">
+                        <div class="product-header">
+                            <h3>Dwarf Cherry Laurel</h3>
+                            <button class="btn btn-small" onclick="editProduct('dwarf')">Edit</button>
+                        </div>
+                        <div class="product-preview">
+                            <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dwarf Cherry Laurel">
+                        </div>
+                    </div>
+                    <div class="product-item" data-product="premium">
+                        <div class="product-header">
+                            <h3>Premium Specimens</h3>
+                            <button class="btn btn-small" onclick="editProduct('premium')">Edit</button>
+                        </div>
+                        <div class="product-preview">
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Premium Specimens">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="content-section">
+                <h1>Contact Information</h1>
+                <form class="admin-form" id="contact-form">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" value="+420 123 456 789">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" value="info@botanicpartners.cz">
+                    </div>
+                    <div class="form-group">
+                        <label>Address (English)</label>
+                        <input type="text" name="address_en" value="123 Garden Lane, Prague, Czech Republic">
+                    </div>
+                    <div class="form-group">
+                        <label>Address (Czech)</label>
+                        <input type="text" name="address_cs" value="Zahradní 123, Praha, Česká republika">
+                    </div>
+                    <div class="form-group">
+                        <label>Business Hours (English)</label>
+                        <input type="text" name="hours_en" value="Mon-Fri: 8AM-6PM | Sat: 9AM-4PM">
+                    </div>
+                    <div class="form-group">
+                        <label>Business Hours (Czech)</label>
+                        <input type="text" name="hours_cs" value="Po-Pá: 8:00-18:00 | So: 9:00-16:00">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary">Preview</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <h1>Website Settings</h1>
+                <form class="admin-form" id="settings-form">
+                    <div class="form-group">
+                        <label>Website Title</label>
+                        <input type="text" name="site_title" value="Botanic Partners - Premium Cherry Laurel">
+                    </div>
+                    <div class="form-group">
+                        <label>Default Language</label>
+                        <select name="default_language">
+                            <option value="en">English</option>
+                            <option value="cs">Czech</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Google Analytics ID</label>
+                        <input type="text" name="ga_id" placeholder="G-XXXXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Description</label>
+                        <textarea name="meta_description" rows="3" placeholder="Enter meta description for SEO"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                        <button type="button" class="btn btn-secondary">Reset to Defaults</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Product Edit Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Edit Product</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="admin-form" id="product-form">
+                <div class="form-group">
+                    <label>Product Name (English)</label>
+                    <input type="text" name="product_name_en" required>
+                </div>
+                <div class="form-group">
+                    <label>Product Name (Czech)</label>
+                    <input type="text" name="product_name_cs" required>
+                </div>
+                <div class="form-group">
+                    <label>Description (English)</label>
+                    <textarea name="product_description_en" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Description (Czech)</label>
+                    <textarea name="product_description_cs" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Product Image URL</label>
+                    <input type="url" name="product_image" required>
+                </div>
+                <div class="form-group">
+                    <label>Height (English)</label>
+                    <input type="text" name="height_en" placeholder="15-20 feet">
+                </div>
+                <div class="form-group">
+                    <label>Height (Czech)</label>
+                    <input type="text" name="height_cs" placeholder="4,5-6 metrů">
+                </div>
+                <div class="form-group">
+                    <label>Spread (English)</label>
+                    <input type="text" name="spread_en" placeholder="8-12 feet">
+                </div>
+                <div class="form-group">
+                    <label>Spread (Czech)</label>
+                    <input type="text" name="spread_cs" placeholder="2,5-3,5 metrů">
+                </div>
+                <div class="form-group">
+                    <label>Growth Rate (English)</label>
+                    <input type="text" name="growth_rate_en" placeholder="Fast">
+                </div>
+                <div class="form-group">
+                    <label>Growth Rate (Czech)</label>
+                    <input type="text" name="growth_rate_cs" placeholder="Rychlý">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="generator.js"></script>
+</body>
+</html> 
