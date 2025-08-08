@@ -73,6 +73,37 @@ body {
     color: #007aff;
 }
 
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #d2d2d7;
+    color: #86868b;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 40px;
+}
+
+.lang-btn:hover {
+    border-color: #007aff;
+    color: #007aff;
+}
+
+.lang-btn.active {
+    background: #007aff;
+    color: white;
+    border-color: #007aff;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -739,6 +770,10 @@ body {
         margin: 1rem 0;
     }
     
+    .language-switcher {
+        margin-left: 1rem;
+    }
+    
     .hero-content h1 {
         font-size: 2.5rem;
     }
@@ -801,5 +836,15 @@ body {
     
     .section-header h2 {
         font-size: 2rem;
+    }
+    
+    .language-switcher {
+        margin-left: 0.5rem;
+    }
+    
+    .lang-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+        min-width: 35px;
     }
 } 

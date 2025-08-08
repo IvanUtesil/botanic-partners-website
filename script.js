@@ -1,3 +1,74 @@
+// Language switching functionality
+let currentLanguage = 'en';
+
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    
+    // Update language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update all elements with data attributes
+    document.querySelectorAll('[data-en], [data-cs]').forEach(element => {
+        const enText = element.getAttribute('data-en');
+        const csText = element.getAttribute('data-cs');
+        
+        if (lang === 'en' && enText) {
+            element.textContent = enText;
+        } else if (lang === 'cs' && csText) {
+            element.textContent = csText;
+        }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('input[data-en-placeholder], input[data-cs-placeholder], textarea[data-en-placeholder], textarea[data-cs-placeholder]').forEach(element => {
+        const enPlaceholder = element.getAttribute('data-en-placeholder');
+        const csPlaceholder = element.getAttribute('data-cs-placeholder');
+        
+        if (lang === 'en' && enPlaceholder) {
+            element.placeholder = enPlaceholder;
+        } else if (lang === 'cs' && csPlaceholder) {
+            element.placeholder = csPlaceholder;
+        }
+    });
+    
+    // Update select options
+    document.querySelectorAll('option[data-en], option[data-cs]').forEach(option => {
+        const enText = option.getAttribute('data-en');
+        const csText = option.getAttribute('data-cs');
+        
+        if (lang === 'en' && enText) {
+            option.textContent = enText;
+        } else if (lang === 'cs' && csText) {
+            option.textContent = csText;
+        }
+    });
+    
+    // Store language preference
+    localStorage.setItem('preferred-language', lang);
+}
+
+// Initialize language switcher
+document.addEventListener('DOMContentLoaded', () => {
+    // Set up language button event listeners
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            switchLanguage(lang);
+        });
+    });
+    
+    // Load saved language preference
+    const savedLanguage = localStorage.getItem('preferred-language');
+    if (savedLanguage) {
+        switchLanguage(savedLanguage);
+    }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -36,7 +107,7 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.8)';
         navbar.style.boxShadow = 'none';
     }
 });
@@ -57,26 +128,30 @@ if (contactForm) {
         
         // Simple validation
         if (!name || !email || !message) {
-            alert('Please fill in all required fields.');
+            const errorMsg = currentLanguage === 'cs' ? 'Prosím vyplňte všechna povinná pole.' : 'Please fill in all required fields.';
+            alert(errorMsg);
             return;
         }
         
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
+            const errorMsg = currentLanguage === 'cs' ? 'Prosím zadejte platnou emailovou adresu.' : 'Please enter a valid email address.';
+            alert(errorMsg);
             return;
         }
         
         // Simulate form submission
         const submitBtn = this.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+        const sendingText = currentLanguage === 'cs' ? 'Odesílání...' : 'Sending...';
+        submitBtn.textContent = sendingText;
         submitBtn.disabled = true;
         
         // Simulate API call
         setTimeout(() => {
-            alert('Thank you for your message! We will get back to you soon.');
+            const successMsg = currentLanguage === 'cs' ? 'Děkujeme za vaši zprávu! Budeme vás kontaktovat brzy.' : 'Thank you for your message! We will get back to you soon.';
+            alert(successMsg);
             this.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -149,7 +224,7 @@ scrollToTopBtn.style.cssText = `
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4a7c59 0%, #2d5a27 100%);
+    background: #007aff;
     color: white;
     border: none;
     cursor: pointer;
@@ -157,7 +232,7 @@ scrollToTopBtn.style.cssText = `
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
 `;
 
 document.body.appendChild(scrollToTopBtn);
