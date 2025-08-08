@@ -91,17 +91,20 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 40px;
+    user-select: none;
 }
 
 .lang-btn:hover {
     border-color: #007aff;
     color: #007aff;
+    transform: translateY(-1px);
 }
 
 .lang-btn.active {
     background: #007aff;
     color: white;
     border-color: #007aff;
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
 }
 
 .hamburger {
@@ -162,6 +165,12 @@ body {
     height: 100%;
     object-fit: cover;
     filter: brightness(0.7);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.hero-image-main img.loaded {
+    opacity: 1;
 }
 
 .hero-overlay {
@@ -298,6 +307,12 @@ body {
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.about-image img.loaded {
+    opacity: 1;
 }
 
 .features {
@@ -388,6 +403,11 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+.product-image img.loaded {
+    opacity: 1;
 }
 
 .product-card:hover .product-image img {
